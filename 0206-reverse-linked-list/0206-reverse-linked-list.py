@@ -33,6 +33,20 @@ class Solution:
             curr = next
         
         return prev
+
+# An alternate recursive solution 
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        def reverse_recursive(node, prev=None):
+            if not node:
+                return prev
+
+            next_node = node.next
+            node.next = prev
+            return reverse_recursive(next_node, node)
+
+        return reverse_recursive(head)
+
             
         
         
